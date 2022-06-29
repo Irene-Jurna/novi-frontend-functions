@@ -3,6 +3,7 @@
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+// const grades = [8, 9, 4, 6, 10]
 
 /* Opdracht  1: Cum Laude */
 
@@ -16,6 +17,14 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+let gradeCumLaude = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        gradeCumLaude += 1;
+    }
+}
+console.log(gradeCumLaude);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -28,6 +37,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
 
+function cumLaude(grades) {
+    let gradeCumLaude = 0;
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] >= 8) {
+            gradeCumLaude += 1;
+        }
+    }
+    return gradeCumLaude;
+}
+
+console.log(cumLaude(grades));
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -42,6 +62,19 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+// Stap 1. Bereken het gemiddelde door alle cijfers bij elkaar op te tellen en te delen door het totaal
+// Stap 2. Uit de array verzamelen: totaal aantal cijfers en de optelsom van die cijfers
+// Stap 3. Alle waardes langslopen doe je met .length
+// Stap 4. Print het antwoord
+
+let total = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    total+= grades[i];
+}
+
+let average = total / grades.length;
+console.log(average);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -57,8 +90,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
-
 
 
 /* Bonusopdracht: hoogste cijfer */
